@@ -1,0 +1,27 @@
+name: 'Klaiv Diagram Diff'
+description: 'Render before/after Klaiv diagram previews on pull requests.'
+author: 'Klaiv'
+branding: { icon: 'git-pull-request', color: 'green' }
+inputs:
+  token:
+    description: 'GitHub token for reading the repo and posting the comment. Pass `token: ${{ github.token }}` from your workflow (action.yml defaults do not evaluate expressions).'
+    required: false
+  architecture-dir:
+    description: 'Root directory of the Klaiv model.'
+    required: false
+    default: 'architecture'
+  previews-branch:
+    description: 'Orphan branch where rendered SVGs are stored.'
+    required: false
+    default: 'klaiv-previews'
+  max-diagrams:
+    description: 'Maximum diagrams rendered per comment.'
+    required: false
+    default: '5'
+  footer-url:
+    description: 'URL used in the comment footer.'
+    required: false
+    default: 'https://github.com/klaiv-dev/diagram-diff-action'
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/klaiv-dev/diagram-diff-action:v1'

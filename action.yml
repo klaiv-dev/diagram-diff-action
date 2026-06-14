@@ -4,7 +4,7 @@ author: 'Klaiv'
 branding: { icon: 'git-pull-request', color: 'green' }
 inputs:
   token:
-    description: 'GitHub token for reading the repo and posting the comment. Pass `token: ${{ github.token }}` from your workflow (action.yml defaults do not evaluate expressions).'
+    description: 'GitHub token for reading the repo and posting the comment. Pass `token: github.token` from your workflow (action.yml defaults do not evaluate expressions).'
     required: false
   architecture-dir:
     description: 'Root directory of the Klaiv model.'
